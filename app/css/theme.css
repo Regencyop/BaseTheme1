@@ -5,10 +5,17 @@ html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
-body {
-  margin: 0;
-  background:#fff url("http://www.four51.com/Themes/Custom/df7e2b71-6326-4da6-a24f-554d7d910faf/Backer.jpg") no-repeat center center fixed;
-}
+
+	body {
+		/* background image full screen */
+		background-color: #ffffff ; /*url("http://www.four51.com/Themes/Custom/df7e2b71-6326-4da6-a24f-554d7d910faf/Backer.jpg") no-repeat center center fixed;*/
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+		margin: 0;
+	}
+
 article,
 aside,
 details,
@@ -10445,14 +10452,6 @@ table[datepicker] {
         font-weight: bolder;
     }
 	*/
-	body {
-		/* background image full screen */
-		background-color: #ffffff ; /*url('../css/images/shutterstock_148368839.jpg') no-repeat center center fixed;*/
-		-webkit-background-size: cover;
-		-moz-background-size: cover;
-		-o-background-size: cover;
-		background-size: cover;
-	}
 	
 /*	.product-image-large { need to enlarge container}*/
 	
