@@ -1,7 +1,7 @@
 four51.app.controller('CartViewCtrl', ['$scope', '$routeParams', '$location', '$451', 'Order', 'OrderConfig', 'User', 'Punchout', '$sce', '$timeout', '$window',
 function ($scope, $routeParams, $location, $451, Order, OrderConfig, User, Punchout, $sce, $timeout, $window) {
     //var declarations
-    var Base64, decodedString, productImagePosition, weightPosition, newStrings, updatedString, encodedXMLString, updatedXML, itemProdIds, minimumTotal, string, itemLines, inc, shippingWeight, idOfProduct, lineItemString, finalizedString = '', productInformation = {};
+    var Base64, decodedString, productImagePosition, weightPosition, newStrings, updatedString, valueAssignment, encodedXMLString, updatedXML, itemProdIds, minimumTotal, string, itemLines, inc, shippingWeight, idOfProduct, lineItemString, finalizedString = '', productInformation = {};
     //$scope.LineItem.Specs.Weight.Value = data.product.ShipWeight;
 
 //update this for the items to achieve a minimum total order
@@ -35,6 +35,9 @@ function ($scope, $routeParams, $location, $451, Order, OrderConfig, User, Punch
                     imageURL = $scope.currentOrder.LineItems[increment].Product.LargeImageUrl;
                     idOfProduct = $scope.currentOrder.LineItems[increment].ProductIDText.replace(' - ','');
                     shippingWeight = $scope.currentOrder.LineItems[increment].Product.ShipWeight;
+                    if (shippingWeight === null) {
+                        shippingWeight = 1;
+                    }
                     productInformation[increment] = { itemWeight : shippingWeight, thalerusURL : imageURL, vibeID : idOfProduct};
                     // update and-or add pieces
                             //ProductImage
@@ -71,7 +74,7 @@ function ($scope, $routeParams, $location, $451, Order, OrderConfig, User, Punch
                                 newStrings = lineItemString[increment] = updatedString;
                             }
                         finalizedString += updatedString + '</ItemDetail>';
-                }    console.log(finalizedString);
+                }
                 //add final object to cXML String
                 finalizedString += lineItemString[lineItemString.length-1];
                 encodedcXMLString = btoa(finalizedString);
