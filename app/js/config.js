@@ -12,14 +12,7 @@ four51.app.config(['$provide', function($provide) {
 				        trackJs.error("API: " + JSON.stringify(ex));
 			        }
 			        catch (x) {
-				        if (JSON.stringify(ex).indexOf("Inactive Product")) {
-				            
-				            document.getElementsByClassName("errorLogContainterEmpty")[0].className = "errorLogContainterError";
-				            var newErrorMessage = document.createElement('p');
-                            newErrorMessage.appendChild(document.createTextNode('This size currently out of stock.'));
-                            document.getElementsByClassName("errorLogContainterError")[0].appendChild(newErrorMessage);
-                            //update here
-				        }
+				        console.log(JSON.stringify(ex));
 			        }
 	            })();
 	        $injector.get('$rootScope').$broadcast('exception', ex, cause);
